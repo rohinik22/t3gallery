@@ -6,6 +6,15 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
+    images: {
+remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fwondivlfr.ufs.sh",
+        pathname: "/**", // allow all image paths
+      },
+    ],   
+ },
     typescript:{
         ignoreBuildErrors: true,
     },
