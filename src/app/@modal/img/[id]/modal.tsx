@@ -32,17 +32,11 @@ export function Modal({ children }: { children: React.ReactNode }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
       <dialog
         ref={dialogRef}
-        className="bg-transparent border-none p-0 m-0 max-w-[90vw] max-h-[90vh]"
+        className="bg-transparent border-none p-0 m-0 max-w-[90vw] max-h-[90vh] text-white"
         onClose={onDismiss}
       >
         <div className="relative">
           {children}
-          <button
-            onClick={onDismiss}
-            className="absolute top-2 right-2 text-white text-3xl"
-          >
-            ✕
-          </button>
         </div>
       </dialog>
     </div>,
