@@ -10,22 +10,24 @@ export const dynamic = "force-dynamic";
 
 async function Images() {
   const images = await getMyImages();
-  console.log("Fetched images:", images); // ✅ Add this
+  console.log("Fetched images:", images); 
 
   return (
     <div className="flex flex-wrap justify-center gap-4">
       {images.map((image) => {
-        console.log("Image URL:", image.url); // ✅ Now inside a block
+        console.log("Image URL:", image.url); 
 
         return (
           <div key={image.id} className="flex w-48 flex-col">
+            <Link href={`/img/${image.id}`} scroll={false}>
             <Image
               src={image.url}
               alt={image.name}
               width={192}
               height={192}
               className="object-contain"
-            />
+              priority
+            /></Link>
             <div>{image.name}</div>
           </div>
         );

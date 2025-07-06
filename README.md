@@ -11,9 +11,9 @@
 - [x] Add image uplaod
 - [x] "taint" (server-only)
 - [x] Use Next/Image component
-- [ ] Error management (w/ Sentry)
+- [x] Error management (w/ Sentry)
 - [ ] Routing/image page (parallel route)
-- [ ] Delete butoom (w/ Server Actions)
+- [ ] Delete button (w/ Server Actions)
 - [ ] Analytics
 - [ ] Ratelimiting (upstash)
 

@@ -40,9 +40,9 @@ export const ourFileRouter = {
       INSERT INTO t3gallery_image (name, url, "userId")
       VALUES (${file.name}, ${file.ufsUrl}, ${metadata.userId})
     `;
-    console.log("✅ DB insert success");
+    console.log("DB insert success");
   } catch (error) {
-    console.error("❌ DB insert failed:", error);
+    console.error("DB insert failed:", error);
   }
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback

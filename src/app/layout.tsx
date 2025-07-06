@@ -18,6 +18,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ourFileRouter } from './api/uploadthing/core';
+import type React from 'react';
 
 export const metadata: Metadata = {
   title: "T3 Gallery",
@@ -34,7 +35,11 @@ const geist = Geist({
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  modal,
+}: { 
+  children: React.ReactNode;
+  modal: React.ReactNode;
+ }) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${geist.variable} flex flex-col gap-4`}>
@@ -50,6 +55,7 @@ export default function RootLayout({
         <body className={`font-sans ${geist.variable}`}>
           <TopNav />
           {children}
+          {modal}
         </body>
       </html>
     </ClerkProvider>
