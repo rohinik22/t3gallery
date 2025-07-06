@@ -1,19 +1,13 @@
-import { Modal } from "./modal";
-import FullPageImageView from "~/components/full-image-page";
+import FullPageImageView from '~/components/full-image-page';
+import { redirect } from 'next/navigation';
 
-export default function PhotoModal({
-  params: { id: photoId },
-}: {
-  params: { id: string };  
-}) {
-
-  const idAsNumber = Number(photoId);
-  if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
-
+export default async function PhotoPage({ params }: { params: { id: string } }) {
+  const idAsNumber = Number(params.id);
+  if (Number.isNaN(idAsNumber)) {
+    redirect('/');  // or a 404
+  }
 
   return (
-    <Modal>
-      <FullPageImageView id={idAsNumber} />
-    </Modal>
+    <FullPageImageView id={idAsNumber} />
   );
 }

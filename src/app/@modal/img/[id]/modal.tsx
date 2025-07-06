@@ -29,15 +29,13 @@ export function Modal({ children }: { children: React.ReactNode }) {
   if (!modalRoot) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+    <div className="fixed inset-0 z-40 bg-black/80 flex items-start justify-center">
       <dialog
         ref={dialogRef}
-        className="bg-transparent border-none p-0 m-0 max-w-[90vw] max-h-[90vh] text-white"
+        className="mt-[98px] border-none p-0 bg-transparent open:flex items-start justify-center"
         onClose={onDismiss}
       >
-        <div className="relative">
-          {children}
-        </div>
+        {children}
       </dialog>
     </div>,
     modalRoot

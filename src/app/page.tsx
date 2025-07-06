@@ -13,8 +13,8 @@ async function Images() {
   console.log("Fetched images:", images); 
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
-      {images.map((image) => {
+    <div className="flex flex-wrap justify-center gap-4 p-4">
+      {[...images, ...images, ...images, ...images, ...images].map((image) => {
         console.log("Image URL:", image.url); 
 
         return (
@@ -38,7 +38,7 @@ async function Images() {
 
 export default async function HomePage() {
   return (
-    <main className="">
+    <main className="pt-24">
       <SignedOut>
         <div className="w-full h-full text-2xl text-center">Please sign in above</div>
       </SignedOut>

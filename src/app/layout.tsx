@@ -54,9 +54,11 @@ export default function RootLayout({
         />
         <body className={`font-sans ${geist.variable}`}>
           <div id="modal-root" />
-          <TopNav />
+          <div className="h-screen grid grid-rows-[auto-1fr]">
+            <TopNav />
            
-          {children}
+          <main className="overflow-y-scoll">{children}</main>
+          </div>
           {modal}
         </body>
       </html>
