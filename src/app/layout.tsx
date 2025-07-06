@@ -53,7 +53,9 @@ export default function RootLayout({
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
         <body className={`font-sans ${geist.variable}`}>
+          <div id="modal-root" />
           <TopNav />
+           
           {children}
           {modal}
         </body>

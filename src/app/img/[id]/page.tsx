@@ -1,11 +1,17 @@
-export default async function PhotoModal(props: {
-  params: { id: string };
-}) {
-  const { id: photoId } = await Promise.resolve(props.params);
+import FullPageImageView from "~/components/full-image-page";
 
-  return (
-    <div className="p-4 text-white">
-      Photo ID: {photoId}
-    </div>
-  );
+export default function PhotoPage({
+  params: { id: photoId },
+}: {
+  params: { id: string };  
+}) {
+
+  const idAsNumber = Number(photoId);
+  if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
+
+
+  return 
+      <FullPageImageView id={idAsNumber} />
+   
+
 }
