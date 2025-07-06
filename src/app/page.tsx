@@ -14,7 +14,7 @@ async function Images() {
 
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4">
-      {[...images, ...images, ...images, ...images, ...images].map((image) => {
+      {images.map((image) => {
         console.log("Image URL:", image.url); 
 
         return (

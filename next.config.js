@@ -21,6 +21,12 @@ remotePatterns: [
     eslint: {
         ignoreDuringBuilds: true,
     },
+    webpack: (config) => {
+    config.cache = {
+      type: 'memory',
+    };
+    return config;
+  },
 };
 
 import { withSentryConfig } from "@sentry/nextjs";
