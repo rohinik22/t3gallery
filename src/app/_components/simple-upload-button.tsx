@@ -63,6 +63,15 @@ fill="white">
                     id: "upload-begin",
                 });                
             },
+
+            onUploadError(error) {
+                posthog.capture("upload_error", { error });
+                toast.dismiss("upload-begin");
+                toast.error("Upload failed");
+            },
+
+
+
             onClientUploadComplete() {
                 toast.dismiss("upload-begin");
                 toast("Upload complete!");
