@@ -44,7 +44,7 @@ export default function RootLayout({
         <NextSSRPlugin
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className={`font-sans ${geist.variable}`}>
+        <body className={`font-sans ${geist.variable} dark`}>
           <div id="modal-root" />
           <div className="h-screen grid grid-rows-[auto-1fr]">
             <TopNav />
