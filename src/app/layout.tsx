@@ -19,6 +19,7 @@ import { ourFileRouter } from './api/uploadthing/core';
 import type React from 'react';
 
 import { ModalWrapper } from './_components/ModalWrapper';
+import { Toaster } from '~/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: "T3 Gallery",
@@ -50,6 +51,7 @@ export default function RootLayout({
             <TopNav />
             <main className="overflow-y-scroll">{children}</main>
             <ModalWrapper>{modal}</ModalWrapper>
+            <Toaster />
           </div>
         </body>
       </html>
