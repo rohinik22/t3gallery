@@ -66,6 +66,7 @@ import { images } from "~/server/db/schema"; // <-- drizzle table definition
 import "server-only";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/dist/server/web/spec-extension/revalidate";
+import analyticsServerClient from "./analytics";
 
 // ✅ GET MY IMAGES
 export async function getMyImages() {
@@ -110,6 +111,14 @@ export async function deleteImage(id: number) {
   await db
     .delete(images)
     .where(eq(images.id, id));
+
+    analyticsServerClient.capture({
+      distinctId: user.userId,
+      event: "delete_image",
+      properties: {
+        imageId: id,
+      }
+    })
 
   revalidatePath("/");
   redirect("/");
