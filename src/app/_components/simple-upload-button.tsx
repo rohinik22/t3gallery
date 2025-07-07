@@ -4,6 +4,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { UploadButton, useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner"
+import { usePostHog } from "posthog-js/react";
 
 //inferred input off useUplaodThing
 type Input = Parameters<typeof useUploadThing>;
@@ -52,9 +53,11 @@ fill="white">
 
     export function SimpleUploadButton() {
         const router = useRouter();
+        const posthog = usePostHog();
 
         const { inputProps } = useUploadThingInputProps("imageUploader",{
             onUploadBegin() {
+                posthog.capture("upload_begin");
                 toast(<div className="flex gap-2 text-white items-center"><LoadingSpinnerSVG /> <span className="text-xl">Uploading...</span></div>, {
                     duration: 100000,
                     id: "upload-begin",

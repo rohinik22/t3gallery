@@ -20,7 +20,7 @@ import { Geist } from "next/font/google";
 import { ourFileRouter } from './api/uploadthing/core';
 import type React from 'react';
 
-import { ModalWrapper } from './_components/ModalWrapper';
+// import { ModalWrapper } from './_components/ModalWrapper';
 import { Toaster } from '~/components/ui/sonner';
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ export default function RootLayout({
           <div className="h-screen grid grid-rows-[auto-1fr]">
             <TopNav />
             <main className="overflow-y-scroll">{children}</main>
-            <ModalWrapper>{modal}</ModalWrapper>
+            {modal}
             <Toaster />
           </div>
         </body>

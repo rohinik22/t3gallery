@@ -29,3 +29,4 @@ export const images = createTable(
   }),
   (t) => [index("name_idx").on(t.name)],
 );
+import { serial, timestamp } from "drizzle-orm/pg-core";
