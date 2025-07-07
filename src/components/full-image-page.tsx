@@ -13,7 +13,7 @@ export default async function FullPageImageView(props: { id: number }) {
     "Unknown User";
 
   return (
-    <div className="pt-24 flex min-h-screen bg-black text-white">
+    <div className="pt-15 flex min-h-screen bg-black text-white">
       {/* Left: Image */}
   <div className="flex-1">
   <img
