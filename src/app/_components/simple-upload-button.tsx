@@ -4,7 +4,6 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { UploadButton, useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner"
-import { useEffect } from "react";
 
 //inferred input off useUplaodThing
 type Input = Parameters<typeof useUploadThing>;

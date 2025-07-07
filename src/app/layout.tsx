@@ -6,6 +6,8 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
+import { PostHogProvider } from './_analytics/provider';
+
 
 import "~/styles/globals.css";
 import { TopNav } from "./_components/TopNav";
@@ -41,6 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
+      <PostHogProvider>
       <html lang="en" className={`${geist.variable} flex flex-col gap-4`}>
         <NextSSRPlugin
           routerConfig={extractRouterConfig(ourFileRouter)}
@@ -55,6 +58,7 @@ export default function RootLayout({
           </div>
         </body>
       </html>
+      </PostHogProvider>
     </ClerkProvider>
   );
 }

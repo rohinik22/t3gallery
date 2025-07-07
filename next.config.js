@@ -21,6 +21,22 @@ remotePatterns: [
     eslint: {
         ignoreDuringBuilds: true,
     },
+    async rewrites() {
+    return [
+      {
+        source: "/relay-ujCO/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/relay-ujCO/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+      {
+        source: "/relay-ujCO/flags",
+        destination: "https://us.i.posthog.com/flags",
+      },
+    ];
+  },
     webpack: (config) => {
     config.cache = {
       type: 'memory',
