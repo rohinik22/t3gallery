@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/clerk-sdk-node";
 import { db } from "@vercel/postgres";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
@@ -17,6 +18,10 @@ export const ourFileRouter = {
 const { userId } = await auth(); // ✅ Await needed here
 
       if (!userId) throw new UploadThingError("Unauthorized");
+
+      const fullUserData = await clerkClient.users.getUser(userId);
+      if (fullUserData?.privateMetadata?.["can-upload"] !== true)
+        throw new UploadThingError("User Does Not Have Upload Permissions");
 
       const { success } = await ratelimit.limit(userId);
       if (!success) throw new UploadThingError("Ratelimited");
