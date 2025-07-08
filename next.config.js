@@ -6,6 +6,8 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const coreConfig = {
+    output: "standalone", // ✅ forces Vercel to use server functions, not static export
+
     images: {
 remotePatterns: [
       {
