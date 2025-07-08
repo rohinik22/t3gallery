@@ -1,11 +1,15 @@
 import { auth } from "@clerk/nextjs/server";
-import { clerkClient } from "@clerk/clerk-sdk-node";
+// import { clerkClient } from "@clerk/clerk-sdk-node";
+import { clerkClient } from "@clerk/nextjs/server";
+
 import { db } from "@vercel/postgres";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { ratelimit } from "~/server/ratelimit";
 
 const f = createUploadthing();
+
+const clerk = await clerkClient();
 
 export const ourFileRouter = {
   imageUploader: f({
@@ -15,11 +19,11 @@ export const ourFileRouter = {
     },
   })
     .middleware(async ({ req }) => {
-const { userId } = await auth(); // ✅ Await needed here
+const { userId } = await auth(); 
 
       if (!userId) throw new UploadThingError("Unauthorized");
 
-      const fullUserData = await clerkClient.users.getUser(userId);
+      const fullUserData = await clerk.users.getUser(userId);
       if (fullUserData?.privateMetadata?.["can-upload"] !== true)
         throw new UploadThingError("User Does Not Have Upload Permissions");
 

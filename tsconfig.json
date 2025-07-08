@@ -10,6 +10,8 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
 
+    "types": ["node"],
+
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -19,7 +21,7 @@
     "lib": ["dom", "dom.iterable", "ES2022"],
     "noEmit": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
     "jsx": "preserve",
     "plugins": [{ "name": "next" }],
     "incremental": true,
