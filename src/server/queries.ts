@@ -68,7 +68,6 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/dist/server/web/spec-extension/revalidate";
 import analyticsServerClient from "./analytics";
 
-// ✅ GET MY IMAGES
 export async function getMyImages() {
   const user = await auth();
   if (!user?.userId) {
@@ -84,7 +83,6 @@ export async function getMyImages() {
   return myImages;
 }
 
-// ✅ GET IMAGE BY ID (with auth check)
 export async function getImageById(id: number) {
   const user = await auth();
   if (!user?.userId) throw new Error("Unauthorized");
@@ -102,7 +100,6 @@ export async function getImageById(id: number) {
   return image;
 }
 
-// ✅ DELETE IMAGE (with auth check)
 export async function deleteImage(id: number) {
   const user = await auth();
   if (!user?.userId) throw new Error("Unauthorized");
